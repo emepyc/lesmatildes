@@ -1,7 +1,7 @@
 /* Controllers */
 var ctrls = angular.module('lesMatildesCtrls', []);
 
-ctrls.controller('HomeCtrl', ['$scope', '$log', 'courses', function ($scope, $log, courses) {
+ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope, $log, news, $sce) {
     'use strict';
 
     $log.log("HomeCtrl()");
@@ -14,15 +14,31 @@ ctrls.controller('HomeCtrl', ['$scope', '$log', 'courses', function ($scope, $lo
         dots: true
     });
 
+    // read news file
+    news.fetch
+        .then (function (resp) {
+            moment.locale('es');
+            var today = moment();
+            var currentNews = [];
+            for (var i=0; i<resp.data.length; i++) {
+                var news = resp.data[i];
+                if (today.isBefore(news.expiry)) {
+                    news.formattedDate = moment(news.date).format("LL");
+                    news.formattedMsg = $sce.trustAsHtml(news.message);
+                    currentNews.push(news);
+                }
+            }
+            $log.log(currentNews);
+            $scope.news = currentNews;
+        });
 
     // read courses file
-    courses.fetch
-        .then (function (resp) {
-            $scope.cursos = resp.data;
-        });
-    // calendar initialisation
-    moment.locale('es');
-    $scope.day = moment();
+    // courses.fetch
+    //     .then (function (resp) {
+    //         $scope.cursos = resp.data;
+    //     });
+    // moment.locale('es');
+    // $scope.day = moment();
 }])
 
 .controller('ContactoCtrl', ['$scope', '$log', 'NgMap', function ($scope, $log, NgMap) {

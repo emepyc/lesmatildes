@@ -17,4 +17,12 @@ services
         return {
             fetch: itemsPromise
         };
+    }])
+
+    .factory('news', ['$log', '$http', function ($log, $http) {
+        $log.log('reading news from cdn');
+        var newsPromise = $http.get('https://emepyc.github.io/lesmatildes/news.json');
+        return {
+            fetch: newsPromise
+        };
     }]);

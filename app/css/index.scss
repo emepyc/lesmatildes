@@ -14,3 +14,18 @@
 @import "articulos";
 @import "contacto";
 @import "footer";
+
+
+.date {
+    font: normal normal 14px Neucha;
+    color: $grey;
+    height: 25px;
+    margin: 1.5em 0 15px;
+    line-height: 1.4em;
+    letter-spacing: .2em;
+    border-bottom: solid 2px;
+}
+
+body {
+    color: #4d4d4d;    
+}

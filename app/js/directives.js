@@ -40,7 +40,7 @@ angular.module('lesMatildesDirectives', [])
         };
     }])
 
-    .directive("matildesCalendar", [function() {
+    .directive("matildesCalendar", ['$log', function($log) {
         var marked = [];
         return {
             restrict: "E",
