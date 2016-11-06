@@ -34,5 +34,11 @@
         "size": "33",
         "price": "50",
         "tags": ["lanuche"]
+    },
+    {
+        "file": "nena-negra.png",
+        "size": "43cm",
+        "price": "45",
+        "tags": ["lanuche"]
     }
 ]
