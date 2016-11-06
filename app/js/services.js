@@ -5,14 +5,12 @@ var services = angular.module('lesMatildesServices', []);
 services
     .factory('courses', ['$log', '$http', function ($log, $http) {
         // Reads the courses from the appropriate url and returns a promise with the object.
-        $log.log("reading courses file from fs");
         var coursesPromise = $http.get('https://emepyc.github.io/lesmatildes/cursos.json');
         return {
             fetch: coursesPromise
         };
     }])
     .factory('items', ['$log', '$http', function ($log, $http) {
-        $log.log("reading items file from fs");
         var itemsPromise = $http.get('https://emepyc.github.io/lesmatildes/items.json');
         return {
             fetch: itemsPromise
@@ -20,7 +18,6 @@ services
     }])
 
     .factory('news', ['$log', '$http', function ($log, $http) {
-        $log.log('reading news from cdn');
         var newsPromise = $http.get('https://emepyc.github.io/lesmatildes/news.json');
         return {
             fetch: newsPromise

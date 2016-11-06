@@ -52,8 +52,6 @@ angular.module('lesMatildesDirectives', [])
             link: function(scope) {
                 scope.$watch("events", function (newDates) {
                     if (newDates) {
-                        $log.log("new dates!!");
-                        $log.log(newDates);
                         marked = newDates;
                         scope.same();
                     }

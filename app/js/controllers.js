@@ -4,8 +4,6 @@ var ctrls = angular.module('lesMatildesCtrls', []);
 ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope, $log, news, $sce) {
     'use strict';
 
-    $log.log("HomeCtrl()");
-
     // slick initialisation
     $('.slider').slick({
         arrow: false,
@@ -28,7 +26,6 @@ ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope
                     currentNews.push(news);
                 }
             }
-            $log.log(currentNews);
             $scope.news = currentNews;
         });
 
@@ -51,29 +48,36 @@ ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope
 
 .controller('MastheadCtrl', ['$scope', '$log', function ($scope, $log) {
     'use strict';
-    $log.log('MastheadCtrl()');
 }])
 
 .controller('NavCtrl', ['$scope', '$log', '$location', function ($scope, $log, $location) {
-    $log.log("NavCtrl()");
     $scope.page = $location.path().substring(1);
     $scope.$on("$locationChangeSuccess", function () {
         $scope.page = $location.path().substring(1);
     });
 }])
 
-.controller('CursosCtrl', ['$scope', '$log', 'courses', function ($scope, $log, courses) {
-    $log.log("CursosCtrl");
+.controller('CursosCtrl', ['$scope', '$log', 'courses', '$sce', function ($scope, $log, courses, $sce) {
     moment.locale('es');
     $scope.day = moment();
     courses.fetch
         .then (function (resp) {
-            $scope.cursos = resp.data;
+            var today = moment();
+            var cursos = resp.data;
+            for (var i=0; i<cursos.length; i++) {
+                var curso = cursos[i];
+                curso.formattedDesc = $sce.trustAsHtml(curso.descripcion);
+                if (today.isBefore(curso.fechas)) {
+                    curso.caducado = false;
+                } else {
+                    curso.caducado = true;
+                }
+            }
+            $scope.cursos = cursos;
         });
 }])
 
 .controller('ArticulosCtrl', ['$scope', '$log', 'items', function ($scope, $log, items) {
-    $log.log("ArticulosCtrl");
 
     $scope.addRemoveTag = function (tag) {
         $scope.showedTags[tag] = !$scope.showedTags[tag];
