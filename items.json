@@ -1,0 +1,38 @@
+[
+    {
+        "file": "dragon.jpg",
+        "size": "90cm",
+        "price": "40",
+        "tags": ["lanuche"]
+    },
+    {
+        "file": "bolso-trapillo.jpg",
+        "size": "40cm",
+        "price": "30",
+        "tags": ["bolso", "trapillo"]
+    },
+    {
+        "file": "bolso-aguamarina.jpg",
+        "size": "30cm",
+        "price": "45",
+        "tags": ["bolso"]
+    },
+    {
+        "file": "bolso-naranja.jpg",
+        "size": "43",
+        "price": "34",
+        "tags": ["bolso"]
+    },
+    {
+        "file": "bolso-cinta.jpg",
+        "size": "25",
+        "price": "25",
+        "tags": ["bolso", "cinta"]
+    },
+    {
+        "file": "oso_naranja.jpg",
+        "size": "33",
+        "price": "50",
+        "tags": ["lanuche"]
+    }
+]
