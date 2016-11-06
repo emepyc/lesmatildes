@@ -1,0 +1,35 @@
+{
+  "name": "lesMatildes",
+  "version": "0.0.1",
+  "description": "Les Matildes web page",
+  "readme": "README.md",
+  "license": "",
+  "scripts": {
+    "postinstall": "bower install --allow-root",
+    "start": "cd server && node server.js"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "del": "^2.2.2",
+    "google-closure-compiler": "^20160822.2.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-closure-compiler": "^0.4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-css-purge": "^1.0.27",
+    "gulp-gzip": "^1.4.0",
+    "gulp-ignore": "^2.0.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9",
+    "gulp-webserver": "^0.9.1",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.3",
+    "mkdirp": "^0.5.1",
+    "serve-static": "^1.11.1"
+  }
+}

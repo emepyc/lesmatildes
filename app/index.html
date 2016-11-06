@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="lesMatildesApp">
+    <head>
+
+        <title>Les Matildes</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF8">
+
+        <!-- <base href="/"> -->
+
+        <!-- info for social media sharing -->
+        <meta property="og:title" content="Les Matildes" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.lesmatildes.com/" />
+        <meta property="og:description" content="Les Matildes. Tienda de lana y lanuches" />
+        <meta property="og:image" content="https://www.targetvalidation.org/imgs/logo/ot_logo_splash.png" />
+
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <!-- <link rel="stylesheet" href="build/lesMatildes-3rdParty.css?v=17082016" /> -->
+        <!-- Don't bundle font-awexome.min.css or the woff files would be broken -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- <link href="build/fontawesome/css/font-awesome.min.css?v=16112015" rel="stylesheet" />
+        <link href="build/bootstrap/dist/css/bootstrap.min.css?v=08122015" rel="stylesheet" />-->
+        <link rel="stylesheet" href="build/lesMatildes.min.css?v=17082016" />
+
+        <!-- slick styles -->
+        <link rel="stylesheet" href="build/slick/slick.css"/>
+        <link rel="stylesheet" href="build/slick/slick-theme.css"/>
+
+        <!-- google maps -->
+        <script src="http://maps.google.com/maps/api/js?key=AIzaSyBkJml5VA2r8aHCHJHxN6Ygvl0tRBNWvuA"></script>
+
+        <!-- Angular && web app -->
+        <script src="build/lesMatildes-3rdParty.js?v=17082016" type="text/javascript"></script>
+        <script src="build/lesMatildes.min.js?v=17082016" type="text/javascript"></script>
+
+    </head>
+
+    <body ng-cloak>
+        <div ng-controller="MastheadCtrl" class="container">
+            <masthead-navigation-menu></masthead-navigation-menu>
+        </div>
+
+        <!-- the logo -->
+        <div class="row logo section">
+            <div class="small-4 columns">
+                <a href="/#/">
+                    <img src="./imgs/lesMatildesLogo.jpeg"/>
+                </a>
+            </div>
+            <div class="small-8 columns">
+                <img class="right pic-highlight" src="./imgs/front/cesto.png"/>
+                <img class="right pic-highlight" src="./imgs/front/nena-negra.png"/>
+                <img class="right pic-highlight" src="./imgs/front/bolso.png"/>
+            </div>
+        </div>
+
+        <div ng-controller="NavCtrl" class="container">
+            <sub-navigation-menu></sub-navigation-menu>
+        </div>
+
+        <!-- router context -->
+        <ng-view></ng-view>
+
+        <div class="cttv-page-wrapper">
+            <!-- Main page content -->
+            <div class="main-content">
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 col-l-6">
+                            <div>
+                                <span class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i> 2016 Les Matildes - Todos los derechos reservados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookie notification-->
+            <script type="text/javascript" id="cookiebanner" src="./vendor/cookiebanner/cookiebanner.min.js"
+                    data-height="50px"
+                    data-link="#337ab7"
+                    data-fontfamily="inherit"
+                    data-close-text="<span class='btn btn-success btn-xs'><i class='fa fa-check-circle'></i> OK</span>"
+                    data-moreinfo="http://ec.europa.eu/ipg/basics/legal/cookies/index_es.htm" >
+            </script>
+
+        </div>
+
+    </body>
+
+</html>

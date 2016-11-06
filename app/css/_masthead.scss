@@ -1,0 +1,16 @@
+@import "vars";
+
+.masthead {
+    .matildes-masthead-item {
+        margin-left: 2px;
+        margin-right: 20px;
+        font-size: 12px;
+        vertical-align: text-top;
+    }
+    .facebook-icon {
+        color: $facebook-color;
+    }
+    .pinterset-icon {
+        color: $pinterest-color;
+    }
+}

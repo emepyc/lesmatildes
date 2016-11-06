@@ -1,0 +1,13 @@
+@import "vars";
+
+.container.contacto {
+    .in-section {
+        margin-top: 30px;
+    }
+    h5 {
+        color: $silver;
+        font: normal normal 18px Neucha;
+    }
+    font: normal normal 14px Neucha;
+    color: $darkgrey;
+}
