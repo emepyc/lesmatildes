@@ -1,44 +1,44 @@
 [
     {
-        "file": "dragon.jpg",
-        "size": "90cm",
-        "price": "40",
+        "file": "dragon.png",
+        "size": "?",
+        "price": "?",
         "tags": ["lanuche"]
     },
     {
-        "file": "bolso-trapillo.jpg",
-        "size": "40cm",
-        "price": "30",
+        "file": "bolso-trapillo.png",
+        "size": "?",
+        "price": "?",
         "tags": ["bolso", "trapillo"]
     },
     {
-        "file": "bolso-aguamarina.jpg",
-        "size": "30cm",
-        "price": "45",
+        "file": "bolso-aguamarina.png",
+        "size": "?",
+        "price": "?",
         "tags": ["bolso"]
     },
     {
-        "file": "bolso-naranja.jpg",
-        "size": "43",
-        "price": "34",
+        "file": "bolso-naranja.png",
+        "size": "?",
+        "price": "?",
         "tags": ["bolso"]
     },
     {
-        "file": "bolso-cinta.jpg",
-        "size": "25",
-        "price": "25",
+        "file": "bolso-cinta.png",
+        "size": "?",
+        "price": "?",
         "tags": ["bolso", "cinta"]
     },
     {
-        "file": "oso_naranja.jpg",
-        "size": "33",
-        "price": "50",
+        "file": "oso_naranja.png",
+        "size": "?",
+        "price": "?",
         "tags": ["lanuche"]
     },
     {
         "file": "nena-negra.png",
-        "size": "43cm",
-        "price": "45",
+        "size": "?",
+        "price": "?",
         "tags": ["lanuche"]
     }
 ]
