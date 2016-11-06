@@ -1,2 +1,9 @@
 [
+    {
+        "id": 1,
+        "titulo": "Vamos a hacer un lanuche",
+        "fechas": ["2016-09-24", "2016-09-23", "2016-09-25"],
+        "fechasFmt": "DEL 23 AL 25 DE SEPTIEMBRE DE 2016",
+        "descripcion": "En este cursos vamos a aprender cómo hacer un lanuche"
+    }
 ]
