@@ -1,6 +1,7 @@
 var app = angular.module('lesMatildesApp', [
   'ngRoute',
   'ngMap',
+  'mm.foundation',
   'lesMatildesServices',
   'lesMatildesCtrls',
   'lesMatildesDirectives'

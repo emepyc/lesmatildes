@@ -9,8 +9,6 @@ var webappFiles = {
             'bower_components/angulartics/dist/angulartics-piwik.min.js',
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/lodash/dist/lodash.min.js',
-            // 'bower_components/foundation/js/foundation/foundation.js',
-            // 'bower_components/foundation/js/foundation/foundation.orbit.js'
             'bower_components/slick-carousel/slick/slick.min.js',
             'bower_components/moment/min/moment-with-locales.min.js',
             'bower_components/ngmap/build/scripts/ng-map.min.js'

@@ -46,25 +46,62 @@
         </div>
 
         <!-- the logo -->
-        <div class="row logo section">
-            <div class="small-4 columns">
-                <a href="/#/">
-                    <img src="./imgs/lesMatildesLogo.jpeg"/>
-                </a>
-            </div>
-            <div class="small-8 columns">
-                <img class="right pic-highlight" src="./imgs/front/cesto.png"/>
-                <img class="right pic-highlight" src="./imgs/front/nena-negra.png"/>
-                <img class="right pic-highlight" src="./imgs/front/bolso.png"/>
+        <div class="row align-middle logo section">
+            <div>
+                <div class="small-12 large-4 columns">
+                    <a href="/#/">
+                        <img src="./imgs/lesMatildesLogo.jpeg"/>
+                    </a>
+                </div>
+                <div class="small-4 show-for-large-up columns">
+                    <img class="right pic-highlight" src="./imgs/front/cesto.png"/>
+                    <img class="right pic-highlight" src="./imgs/front/nena-negra.png"/>
+                    <img class="right pic-highlight" src="./imgs/front/bolso.png"/>
+                </div>
             </div>
         </div>
 
-        <div ng-controller="NavCtrl" class="container">
-            <sub-navigation-menu></sub-navigation-menu>
-        </div>
+        <div class="off-canvas-wrap">
+            <div class="inner-wrap">
+                <div class="show-for-medium-up">
+                    <div ng-controller="NavCtrl" class="container">
+                        <sub-navigation-menu></sub-navigation-menu>
+                    </div>
+                </div>
 
-        <!-- router context -->
-        <ng-view></ng-view>
+                <nav class="tab-bar show-for-small-only">
+                    <section class="left-small">
+                        <a class="left-off-canvas-toggle menu-icon" ><span> Menú</span></a>
+                    </section>
+                </nav>
+                <!-- <aside class="left-off-canvas-menu">
+                    <ul class="off-canvas-list">
+                        <li><a href="#">Les Matildes</a></li>
+                    </ul>
+                </aside> -->
+
+                <aside class="left-off-canvas-menu">
+                    <ul class="off-canvas-list">
+                        <li>
+                            <label class="first">Les Matildes</label>
+                        </li>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/articulos">Articulos</a>
+                        </li>
+
+                    </ul>
+
+                </aside>
+
+                <div role="main" class="main-section scroll-container">
+                    <!-- router context -->
+                    <ng-view></ng-view>
+                </div>
+            </div>
+        </div>
 
         <div class="cttv-page-wrapper">
             <!-- Main page content -->
