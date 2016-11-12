@@ -2,10 +2,6 @@
 @import "../build/foundation/scss/foundation.scss";
 @import "../build/foundation/scss/normalize.scss";
 
-// slick
-// @import "../build/slick/slick.scss";
-// @import "../build/slick/slick-theme.scss";
-
 @import "masthead";
 @import "logo";
 @import "navmenu";
@@ -24,6 +20,10 @@
     line-height: 1.4em;
     letter-spacing: .2em;
     border-bottom: solid 2px;
+}
+
+.container {
+    margin: 10px;
 }
 
 body {
