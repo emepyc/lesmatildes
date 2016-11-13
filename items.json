@@ -1,44 +1,58 @@
 [
     {
         "file": "dragon.png",
+        "name": "dragon",
+        "description": "dragon amarillo",
         "size": "?",
-        "price": "?",
+        "price": "40",
         "tags": ["lanuche"]
     },
     {
         "file": "bolso-trapillo.png",
+        "name": "bolso de trapillo",
+        "description": "bolso de trapillo de color chulo",
         "size": "?",
-        "price": "?",
+        "price": "35",
         "tags": ["bolso", "trapillo"]
     },
     {
         "file": "bolso-aguamarina.png",
+        "name": "bolso aguamarina",
+        "description": "bolso color aguamarina muy chulo",
         "size": "?",
-        "price": "?",
+        "price": "32.70",
         "tags": ["bolso"]
     },
     {
         "file": "bolso-naranja.png",
+        "name": "bolso naranja",
+        "description": "bolso de color naranja",
         "size": "?",
-        "price": "?",
+        "price": "22.95",
         "tags": ["bolso"]
     },
     {
         "file": "bolso-cinta.png",
+        "name": "bolso cinta",
+        "description": "bolso hecho de cinta",
         "size": "?",
-        "price": "?",
+        "price": "19.80",
         "tags": ["bolso", "cinta"]
     },
     {
         "file": "oso_naranja.png",
+        "name": "oso naranja",
+        "description": "oso de color naranja",
         "size": "?",
-        "price": "?",
+        "price": "32",
         "tags": ["lanuche"]
     },
     {
         "file": "nena-negra.png",
+        "name": "nena negra",
+        "description": "nena negra",
         "size": "?",
-        "price": "?",
+        "price": "43.70",
         "tags": ["lanuche"]
     }
 ]
