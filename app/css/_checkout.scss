@@ -1,0 +1,11 @@
+@import "vars";
+@import "card";
+
+.carrito-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  .carrito-img {
+    height: 30px;
+  }
+}

@@ -1,14 +1,15 @@
 var app = angular.module('lesMatildesApp', [
-  'ngRoute',
-  'ngMap',
-  'mm.foundation',
-  'lesMatildesServices',
-  'lesMatildesCtrls',
-  'lesMatildesDirectives'
+    'ngRoute',
+    'ngMap',
+    'angularPayments',
+    'mm.foundation',
+    'lesMatildesServices',
+    'lesMatildesCtrls',
+    'lesMatildesDirectives'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+    function ($routeProvider, $locationProvider) {
         'use strict';
 
         $routeProvider
@@ -28,9 +29,13 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: "partials/contacto.html",
                 controller: 'ContactoCtrl'
             })
+            .when('/checkout', {
+                templateUrl: 'partials/checkout.html',
+                controller: 'CheckoutCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
 
         $locationProvider.html5Mode(true);
-}]);
+    }]);

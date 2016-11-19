@@ -11,40 +11,59 @@
 //     }
 // }
 
-
 .articulos {
-    .tag-section {
-        margin-bottom: 15px;
-    }
+  .tag-section {
+    margin-bottom: 15px;
+  }
+}
 
-    .item-label {
-        margin-right: 15px;
-        cursor: pointer;
-        font-size: 1.2em;
-        font-family: 'Open Sans', sans-serif;
-    }
+.item-label {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-family: 'Open Sans', sans-serif;
+}
 
-    .items-grid {
-        margin-top: 15px;
-    }
+.items-grid {
+  margin-top: 15px;
+}
 
-    .item {
-        border: solid 1px $grey;
-        padding: 10px;
+.item {
+  border: solid 1px $grey;
+  padding: 10px;
 
-        img {
-            height: 170px;
-        }
+  img {
+    height: 170px;
+  }
 
-        .legend {
-            margin-top: 10px;
-            color: $grey;
-            font-size: 12px;
-            font-family: 'Open Sans', sans-serif;
+  .add-to-cart {
+    background: $lightgrey;
+    @include border-radius(10px);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+  }
 
-            // .price {
-            //     float: right;
-            // }
-        }
-    }    
+  .inc-container {
+    left: -20px;
+  }
+
+  .dec-container {
+    left: 20px;
+  }
+
+  .inc-dec-item {
+    cursor: pointer;
+  }
+
+  .legend {
+    margin-top: 10px;
+    color: $grey;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+
+    // .price {
+    //     float: right;
+    // }
+  }
 }

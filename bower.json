@@ -24,6 +24,7 @@
     "angular-foundation": "~0.8.0",
     "slick-carousel": "~1.6.0",
     "moment": "~2.15.1",
-    "ngmap": "~1.17.6"
+    "ngmap": "~1.17.6",
+    "angular-payments": "*"
   }
 }

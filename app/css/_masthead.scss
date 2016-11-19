@@ -1,6 +1,7 @@
 @import "vars";
 
 .masthead {
+    height: 2rem;
     .matildes-masthead-item {
         margin-left: 2px;
         margin-right: 20px;
@@ -12,5 +13,25 @@
     }
     .instagram-icon {
         color: $instagram-color;
+    }
+
+    .cart-container {
+        float:right;
+        position:relative;
+        cursor:pointer;
+        .n-items {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            pointer-events: none;
+            @include border-radius(7px);
+            background: $color-alert;
+            text-align: center;
+            left: 0px;
+            top: 10px;
+            color: $lightgrey;
+            font-size: 10px;
+        }
+
     }
 }
