@@ -4,6 +4,8 @@ var services = angular.module('lesMatildesServices', []);
 
 services
     .factory('courses', ['$log', '$http', function ($log, $http) {
+        'use strict';
+
         // Reads the courses from the appropriate url and returns a promise with the object.
         var coursesPromise = $http.get('https://emepyc.github.io/lesmatildes/cursos.json');
         return {
@@ -11,19 +13,34 @@ services
         };
     }])
     .factory('items', ['$log', '$http', function ($log, $http) {
+        'use strict';
+
         var itemsPromise = $http.get('https://emepyc.github.io/lesmatildes/items.json');
         return {
             fetch: itemsPromise
         };
     }])
 
+    .factory('likes', ['$log', '$http', function ($log, $http) {
+        'use strict';
+
+        var likesPromise = $http.get('https://emepyc.github.io/lesmatildes/likes.json');
+        return {
+            fetch: likesPromise
+        };
+    }])
+
     .factory('news', ['$log', '$http', function ($log, $http) {
+        'use strict';
+
         var newsPromise = $http.get('https://emepyc.github.io/lesmatildes/news.json');
         return {
             fetch: newsPromise
         };
     }])
-    .factory('carrito', ['$log', '$http', 'items', function ($log, $http, items) {
+    .factory('carrito', ['$log', '$http', 'items', 'likes', function ($log, $http, items, likes) {
+        'use strict';
+
         var carrito = {
             total: 0, // Items selected
             totalPrice: 0,
@@ -45,9 +62,24 @@ services
                         if (!carrito.tags[item.tags[j]]) {
                             carrito.tags[item.tags[j]] = false;
                         }
-                        //carrito.tags[item.tags[j]]++;
                     }
                 }
+                return likes.fetch;
+            })
+            .then (function (resp) {
+                $log.log("likes here");
+                $log.log(likes);
+                var ls = resp.data;
+                for (var name in ls) {
+                    var n = ls[name];
+                    for (var i=0; i<carrito.items.length; i++) {
+                        var item = carrito.items[i];
+                        if (name === item.name) {
+                            item.likes = n;
+                        }
+                    }
+                }
+                $log.log(carrito);
             });
         return {
             addItem: function (item) {
@@ -94,6 +126,33 @@ services
             getCarrito: function () {
                 return carrito;
             },
+
+            addLike: function (likedItem) {
+                if (likedItem.likes) {
+                    likedItem.likes++;
+                } else {
+                    likedItem.likes = 1;
+                }
+                $log.log("added like for " + likedItem.name);
+                var itemsWithLikes = {};
+                for (var i = 0; i < carrito.items.length; i++) {
+                    var item = carrito.items[i];
+                    if (item.likes) {
+                        itemsWithLikes[item.name] = item.likes;
+                    }
+                }
+                $log.log("items with likes...");
+                $log.log(itemsWithLikes);
+                $http.post('https://wt-emepyc-gmail-com-0.run.webtask.io/lesMatildes-likes', itemsWithLikes)
+                    .then (function (resp) {
+                        $log.log("resp from likes commit...");
+                        $log.log(resp);
+                    }, function (err) {
+                        $log.log('error from likes commit...');
+                        $log.error(err);
+                    });
+            },
+
             resetPayment: function () {
                 carrito.totalPrice = 0;
                 carrito.total = 0;

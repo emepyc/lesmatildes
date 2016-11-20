@@ -48,6 +48,11 @@ angular.module('lesMatildesDirectives', [])
                     carrito.addItem(scope.item);
                     //scope.current = carrito.getThis(sc.item.file);
                 };
+                
+                scope.like = function () {
+                    scope.byme = true;
+                    carrito.addLike(scope.item);
+                };
 
                 // $timeout(function () {
                 //     var image = document.getElementById("matildes-" + scope.item.file + "-img");

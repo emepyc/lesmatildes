@@ -1,43 +1,45 @@
-<div class="row section checkout">
-    <h4>Carrito</h4>
+<div class="container">
+    <div class="row section container checkout">
+        <h4>Carrito</h4>
 
-    <div data-alert class="alert-box alert">
-        Estamos en pruebas. Por favor no realices ningún pago todavía utilizando esta página web
-        <a href="#" class="close">&times;</a>
-    </div>
+        <div data-alert class="alert-box alert">
+            Estamos en pruebas. Por favor no realices ningún pago todavía utilizando esta página web
+            <a href="#" class="close">&times;</a>
+        </div>
 
-    <div ng-hide="carrito.total">
-        Tu carrito está vacío. Echa un vistazo a nuestros <a href="/articulos">artículos</a>.
-    </div>
+        <div ng-hide="carrito.total">
+            Tu carrito está vacío. Echa un vistazo a nuestros <a href="/articulos">artículos</a>.
+        </div>
 
-    <div ng-show="carrito.total">
-        <div class="carrito-container">
-            <div ng-repeat='item in carrito.items | filter: {n:"!0"}'>
-                <!--<carrito-item item=item></carrito-item>-->
-                <!--<matildesa-articulo item="item"></matildesa-articulo>-->
+        <div ng-show="carrito.total">
+            <div class="carrito-container">
+                <div ng-repeat='item in carrito.items | filter: {n:"!0"}'>
+                    <!--<carrito-item item=item></carrito-item>-->
+                    <!--<matildesa-articulo item="item"></matildesa-articulo>-->
+                </div>
+
+
+                <div class="item-grid">
+                    <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+                        <li ng-repeat='item in carrito.items | filter: {n:"!0"}'>
+                            <matildes-articulo item="item"></matildes-articulo>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Total -->
+                <div class="row">
+                    <div class="small-8 columns"></div>
+                    <div class="small-2 columns">Total</div>
+                    <div class="small-2 columns">{{ carrito.totalPrice | number:2 }} EUR</div>
+                </div>
+
             </div>
 
-
-            <div class="item-grid">
-                <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
-                    <li ng-repeat='item in carrito.items | filter: {n:"!0"}'>
-                        <matildes-articulo item="item"></matildes-articulo>
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- Total -->
-            <div class="row">
-                <div class="small-8 columns"></div>
-                <div class="small-2 columns">Total</div>
-                <div class="small-2 columns">{{ carrito.totalPrice | number:2 }} EUR</div>
-            </div>
+            <card-payment></card-payment>
 
         </div>
 
-        <card-payment></card-payment>
-
     </div>
-
 </div>

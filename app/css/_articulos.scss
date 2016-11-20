@@ -36,6 +36,13 @@
     height: 170px;
   }
 
+  .like {
+    &.by-me {
+      color: $color-alert;
+    }
+    float: right;
+  }
+
   .add-to-cart {
     background: $lightgrey;
     @include border-radius(10px);

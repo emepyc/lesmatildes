@@ -1,7 +1,7 @@
 <div class="item">
     <img src="https://emepyc.github.io/lesmatildes/app/imgs/items/{{item.file}}" class="img"/>
     <div class="legend">
-        <div class=size>Tamaño: {{item.size}}</div>
+        <div ng-class="byme ? 'like by-me' : 'like'" ng-click="like()">{{item.likes || 0}} <span><i class="fa fa-heart"></i></span></div>
         <div class=price>Precio: {{item.price}}&euro;</div>
         <div class="add-to-cart" ng-show="!item.n" ng-click="incItem()">Añadir a carrito</div>
         <div class="selection row" ng-show="item.n">
