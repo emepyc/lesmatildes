@@ -9,3 +9,7 @@
     height: 30px;
   }
 }
+
+.modal-wait {
+  @include center-div(50px);
+}

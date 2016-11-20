@@ -1,6 +1,11 @@
 <div class="row section checkout">
     <h4>Carrito</h4>
 
+    <div data-alert class="alert-box alert">
+        Estamos en pruebas. Por favor no realices ningún pago todavía utilizando esta página web
+        <a href="#" class="close">&times;</a>
+    </div>
+
     <div ng-hide="carrito.total">
         Tu carrito está vacío. Echa un vistazo a nuestros <a href="/articulos">artículos</a>.
     </div>
@@ -31,13 +36,7 @@
 
         </div>
 
-        <card-payment>
-            <div ng-show="paymentSuccess">
-                <p>¡Gracias por tu compra!</p>
-                <p>Por favor, anota este número de pedido e inclúyelo en cualquier comunicación con nosotros</p>
-                <p>Si tienes cualquier ponte en contacto con nosotros por email: <a href="mailto:lesmatides@hotmail.com">lesmatildes@hotmail.com</a></p>
-            </div>
-        </card-payment>
+        <card-payment></card-payment>
 
     </div>
 

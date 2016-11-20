@@ -2,12 +2,12 @@ var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
-var closureCompiler = require('gulp-closure-compiler');
+// var closureCompiler = require('gulp-closure-compiler');
 var webserver = require('gulp-webserver');
 
 var browserify = require('gulp-browserify');
 var sass = require('gulp-sass');
-var csspurge = require('gulp-css-purge');
+// var csspurge = require('gulp-css-purge');
 var minifyCss = require('gulp-minify-css');
 
 var gzip = require('gulp-gzip');

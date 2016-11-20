@@ -237,6 +237,9 @@ angular.module('lesMatildesDirectives', [])
                             email: token.email
                         };
                         scope.email = token.email;
+                        var waitModal = $modal.open({
+                            template: '<div class="modal-wait"><i class="fa fa-spinner fa-2x faa-spin animated"></i></div>'
+                        });
                         $http.post(url, stripeData)
                             .then(function (resp) {
                                 scope.paymentOk = true;
@@ -268,6 +271,7 @@ angular.module('lesMatildesDirectives', [])
                                 //
 
                                 // Open a modal to thank the purchase
+                                waitModal.close();
                                 var modalInstance = $modal.open({
                                     template: '<h3>¡Gracias!</h3>' +
                                     '<div>Tu compra ha sido realizada con éxito</div>' +
@@ -277,10 +281,12 @@ angular.module('lesMatildesDirectives', [])
                                     '<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>',
                                     scope: scope
                                 });
-
+                                scope.cancel = function () {
+                                    modalInstance.dismiss('cancel');
+                                };
 
                                 // Reset the cart
-                                scope.paymentSuccess = orderId;
+                                // scope.paymentSuccess = scope.orderId;
                                 carrito.resetPayment();
                             }, function (err) {
                                 scope.paymentFailed = true;

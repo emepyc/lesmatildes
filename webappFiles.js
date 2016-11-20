@@ -12,7 +12,8 @@ var webappFiles = {
             'bower_components/slick-carousel/slick/slick.min.js',
             'bower_components/moment/min/moment-with-locales.min.js',
             'bower_components/ngmap/build/scripts/ng-map.min.js',
-            'bower_components/angular-payments/lib/angular-payments.min.js'
+            'bower_components/angular-payments/lib/angular-payments.min.js',
+            // 'app/vendor/spinner/cttv.spinner.min.js'
         ],
 
         // 'css': [
