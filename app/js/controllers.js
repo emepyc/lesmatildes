@@ -46,9 +46,8 @@ ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope
         });
     }])
 
-    .controller('MastheadCtrl', ['$scope', '$log', 'carrito', function ($scope, $log, carrito) {
+    .controller('MastheadCtrl', ['$scope', '$log', function ($scope, $log) {
         'use strict';
-        $scope.itemsInCart = carrito.getCarrito();
     }])
 
     .controller('CheckoutCtrl', ['$scope', '$log', 'carrito', '$http', function ($scope, $log, carrito, $http) {
@@ -81,11 +80,14 @@ ctrls.controller('HomeCtrl', ['$scope', '$log', 'news', '$sce', function ($scope
 
     }])
 
-    .controller('NavCtrl', ['$scope', '$log', '$location', function ($scope, $log, $location) {
+    .controller('NavCtrl', ['$scope', '$log', '$location', 'carrito', function ($scope, $log, $location, carrito) {
+        'use strict';
         $scope.page = $location.path().substring(1);
         $scope.$on("$locationChangeSuccess", function () {
             $scope.page = $location.path().substring(1);
         });
+        $scope.itemsInCart = carrito.getCarrito();
+
     }])
 
     .controller('CursosCtrl', ['$scope', '$log', 'courses', '$sce', function ($scope, $log, courses, $sce) {
