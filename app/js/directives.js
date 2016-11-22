@@ -50,7 +50,15 @@ angular.module('lesMatildesDirectives', [])
                 };
                 
                 scope.like = function () {
+                    // If you have previously liked it... unlike
+                    if (scope.byme) {
+                        scope.byme = false;
+                        scope.item.likes--;
+                        carrito.removeLike(scope.item);
+                        return;
+                    }
                     scope.byme = true;
+                    scope.item.likes++;
                     carrito.addLike(scope.item);
                 };
 

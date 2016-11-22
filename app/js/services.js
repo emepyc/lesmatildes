@@ -55,6 +55,7 @@ services
                 for (var i=0; i<items.length; i++) {
                     var item = items[i];
                     item.n = 0;
+                    item.likes = 0;
                     carrito.items.push(item);
 
                     // tags
@@ -67,8 +68,6 @@ services
                 return likes.fetch;
             })
             .then (function (resp) {
-                $log.log("likes here");
-                $log.log(likes);
                 var ls = resp.data;
                 for (var name in ls) {
                     var n = ls[name];
@@ -79,7 +78,6 @@ services
                         }
                     }
                 }
-                $log.log(carrito);
             });
         return {
             addItem: function (item) {
@@ -105,14 +103,6 @@ services
                         break;
                     }
                 }
-                //if (carrito.items[item.file]) {
-                //    carrito.items[item.file].n--;
-                //    carrito.total--;
-                //}
-
-                //if (carrito.items[item.file] == 0) {
-                //    delete carrito[item.file];
-                //}
             },
             getThis: function (filename) {
                 for (var i=0; i<carrito.items.length; i++) {
@@ -127,26 +117,21 @@ services
                 return carrito;
             },
 
-            addLike: function (likedItem) {
-                if (likedItem.likes) {
-                    likedItem.likes++;
-                } else {
-                    likedItem.likes = 1;
-                }
-                $log.log("added like for " + likedItem.name);
-                var itemsWithLikes = {};
-                for (var i = 0; i < carrito.items.length; i++) {
-                    var item = carrito.items[i];
-                    if (item.likes) {
-                        itemsWithLikes[item.name] = item.likes;
-                    }
-                }
-                $http.post('https://wt-emepyc-gmail-com-0.run.webtask.io/lesMatildes-likes', itemsWithLikes)
-                // $http.post('http://127.0.0.1:7729', itemsWithLikes)
-                    .then (function (resp) {
-                        // $log.log("resp from likes commit...");
-                        // $log.log(resp);
-                    }, function (err) {
+            // WARNING: Only 1 call per second (free webtask plan)
+            removeLike: function (item) {
+                // $http.get('http://127.0.0.1:7729?webtask_no_cache=1&item='+ item.name + '&action=remove')
+                $http.get('https://wt-emepyc-gmail-com-0.run.webtask.io/lesMatildes-likes?webtask_no_cache=1&item='+ item.name + '&action=remove')
+                    .then (null, function (err) {
+                        if (err) {
+                            $log.log('error from likes commit...');
+                            $log.error(err);
+                        }
+                    });
+            },
+            addLike: function (item) {
+                // $http.get('http://127.0.0.1:7729?webtask_no_cache=1&item='+ item.name + '&action=add')
+                $http.get('https://wt-emepyc-gmail-com-0.run.webtask.io/lesMatildes-likes?webtask_no_cache=1&item='+ item.name + '&action=add')
+                    .then (null, function (err) {
                         if (err) {
                             $log.log('error from likes commit...');
                             $log.error(err);

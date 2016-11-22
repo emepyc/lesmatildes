@@ -43,6 +43,11 @@
     float: right;
   }
 
+  .center {
+    display: table-cell;
+    text-align:center;
+  }
+
   .add-to-cart {
     background: $lightgrey;
     @include border-radius(10px);

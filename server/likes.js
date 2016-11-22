@@ -1,13 +1,13 @@
 var GitHubApi = require('github');
 
 module.exports = function (ctx, cb) {
-    var data = ctx.data;
-    delete(data['githubToken']);
+    var item = ctx.query.item;
+    var action = ctx.query.action;
 
     var github = new GitHubApi({
         host: 'api.github.com',
         protocol: 'https',
-        version: '3.0.0',
+        version: '3.0.0',  // Needed for webtask supported version of github module
         headers: {
             'user-agent': 'webtask',
             followRedirects: false,
@@ -22,22 +22,38 @@ module.exports = function (ctx, cb) {
     });
 
     github.repos.getContent({
-        // owner: "emepyc",
+        // owner: "emepyc",  // Not available in webtask version, using 'user' instead
         user: 'emepyc',
         repo: "lesmatildes",
         path: "likes.json",
         ref: 'gh-pages'
     }, function (err, res) {
+        var likes = JSON.parse(new Buffer(res.content, 'base64'));
         var sha = res.sha;
 
+        // Actions: add or remove
+        if (action === 'add') {
+            if (!likes[item]) {
+                likes[item] = 1;
+            } else {
+                likes[item]++;
+            }
+        } else if (action === 'remove') {
+            if (likes[item] === 1) {
+                delete likes[item];
+            } else {
+                likes[item]--;
+            }
+        }
+
         github.repos.updateFile({
-            // owner: 'emepyc',
+            // owner: 'emepyc',  // Not available in webtask version, using 'user' instead
             user: 'emepyc',
             repo: 'lesmatildes',
             path: 'likes.json',
             message: 'change in likes.json from lesmatildes website',
             branch: 'gh-pages',
-            content: new Buffer(JSON.stringify(data, null, '    ')).toString('base64'),
+            content: new Buffer(JSON.stringify(likes, null, '    ')).toString('base64'),
             sha: sha
         }, cb);
 

@@ -5,14 +5,14 @@
         <div class=price>Precio: {{item.price}}&euro;</div>
         <div class="add-to-cart" ng-show="!item.n" ng-click="incItem()">Añadir a carrito</div>
         <div class="selection row" ng-show="item.n">
-            <div class="small-4 columns dec-container" ng-click="decItem()">
+            <div class="small-4 columns center dec-container" ng-click="decItem()">
                 <i class="fa fa-minus inc-dec-item dec-item"></i>
             </div>
-            <div class="small-4 columns">
+            <div class="small-4 columns center">
                 {{item.n}}
             </div>
-            <div class="small-4 columns inc-container" ng-click="incItem()">
-                <i class="fa fa-plus inc-dec-item"></i>
+            <div class="small-4 columns center inc-container" ng-click="incItem()">
+                <i class="fa fa-plus inc-dec-item inc-item"></i>
             </div>
         </div>
     </div>
