@@ -141,15 +141,16 @@ services
                         itemsWithLikes[item.name] = item.likes;
                     }
                 }
-                $log.log("items with likes...");
-                $log.log(itemsWithLikes);
                 $http.post('https://wt-emepyc-gmail-com-0.run.webtask.io/lesMatildes-likes', itemsWithLikes)
+                // $http.post('http://127.0.0.1:7729', itemsWithLikes)
                     .then (function (resp) {
-                        $log.log("resp from likes commit...");
-                        $log.log(resp);
+                        // $log.log("resp from likes commit...");
+                        // $log.log(resp);
                     }, function (err) {
-                        $log.log('error from likes commit...');
-                        $log.error(err);
+                        if (err) {
+                            $log.log('error from likes commit...');
+                            $log.error(err);
+                        }
                     });
             },
 
