@@ -7,13 +7,13 @@
             <div class="nav-menu-item" ng-class="{'active':page=='contacto'}"><a href="/contacto">CONTACTO</a></div>
 
             <!-- Carrito -->
-            <!--<div class="cart-container" ng-show="itemsInCart.total">-->
-            <div class="cart-container" ng-class="itemsInCart.total ? 'cart-full' : 'cart-empty'">
-                <a href="/checkout">
-                    <div class="n-items">{{itemsInCart.total}}</div>
-                    <i class="fa fa-shopping-cart fa-2x shopping-cart"></i>
-                </a>
-            </div>
+            <cart-icon></cart-icon>
+            <!--<div class="cart-container" ng-class="itemsInCart.total ? 'cart-full' : 'cart-empty'">-->
+                <!--<a href="/checkout">-->
+                    <!--<div class="n-items">{{itemsInCart.total}}</div>-->
+                    <!--<i class="fa fa-shopping-cart fa-2x shopping-cart"></i>-->
+                <!--</a>-->
+            <!--</div>-->
 
         </div>
     </div>

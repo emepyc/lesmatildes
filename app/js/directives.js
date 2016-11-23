@@ -22,13 +22,25 @@ angular.module('lesMatildesDirectives', [])
             templateUrl: "../partials/carrito-item.html",
             scope: {
                 item: '='
-            },
-            link: function (scope, el, attrs) {
             }
+            // link: function (scope, el, attrs) {
+            // }
 
         };
     }])
 
+    .directive("cartIcon", ['$log', 'carrito', function ($log, carrito) {
+        'use strict';
+        return {
+            restrict: 'E',
+            templateUrl: 'partials/carrito-icon.html',
+            scope: {},
+            link: function (scope, elem, attrs) {
+                scope.carrito = carrito.getCarrito();
+            }
+        }
+    }])
+    
     .directive("matildesArticulo", ['$log', 'carrito', function ($log, carrito) {
         'use strict';
         return {
@@ -285,8 +297,10 @@ angular.module('lesMatildesDirectives', [])
 
                                 // Open a modal to thank the purchase
                                 waitModal.close();
-                                var modalInstance = $modal.open({
-                                    template: '<h3>¡Gracias!</h3>' +
+                                scope.paymentResult = $modal.open({
+                                    template: '' +
+                                    '<div class="payment-side-img"><img src="imgs/icons/ok.png"></div>' +
+                                    '<h3>¡Gracias!</h3>' +
                                     '<div>Tu compra ha sido realizada con éxito</div>' +
                                     '<div>Éste es tu número de pedido: {{orderId}}</div>' +
                                     '<div>Te hemos enviado un correo electrónico a {{email}} confirmando tu compra</div>' +
@@ -294,18 +308,30 @@ angular.module('lesMatildesDirectives', [])
                                     '<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>',
                                     scope: scope
                                 });
-                                scope.cancel = function () {
-                                    modalInstance.dismiss('cancel');
-                                };
 
                                 // Reset the cart
                                 // scope.paymentSuccess = scope.orderId;
                                 carrito.resetPayment();
                             }, function (err) {
-                                scope.paymentFailed = true;
+                                waitModal.close();
+                                scope.paymentResult = $modal.open({
+                                    template: '' +
+                                    '<div class="payment-side-img"><img src="imgs/icons/error.png"></div>' +
+                                    '<div>Hemos tenido un problema</div>' +
+                                    '<div>Tu compra no ha podido realizarse</div>' +
+                                    '<div>Si sigues teniendo problemas por favor contáctanos:</div>' +
+                                    '<div><a href="mailto:lesmatildes.hotmail.com">lesmatildes@hotmail.com</a></div>' +
+                                    '<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>',
+                                    scope: scope
+                                });
                             });
                     }
                 });
+
+                scope.cancel = function () {
+                    scope.paymentResult.dismiss('cancel');
+                };
+
 
                 el[0].addEventListener('click', function (e) {
                     // Open Checkout with further options:

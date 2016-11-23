@@ -6,7 +6,7 @@ $height: 50px;
   border-top-style: solid;
   border-bottom-style: solid;
   border-width: 2px;
-  border-color: black;
+  border-color: $darkgrey;
   height: $height;
   .wrapper {
     text-align: center;
@@ -25,40 +25,4 @@ $height: 50px;
       color: #008CBA;
     }
   }
-
-  .cart-container {
-    float: right;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-
-    &.cart-full {
-      .n-items {
-        width: 14px;
-        height: 14px;
-        position: absolute;
-        pointer-events: none;
-        @include border-radius(7px);
-        background: $color-alert;
-        text-align: center;
-        left: 0px;
-        top: 15px;
-        color: $lightgrey;
-        font-size: 10px;
-      }
-    }
-
-    &.cart-empty {
-      .fa-shopping-cart {
-        color: gray;
-      }
-      .n-items {
-        display: none;
-      }
-    }
-
-  }
-
 }

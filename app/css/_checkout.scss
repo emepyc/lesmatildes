@@ -10,6 +10,11 @@
   }
 }
 
+.payment-side-img {
+  float: left;
+  margin-right: 30px;
+}
+
 .modal-wait {
   @include center-div(50px);
 }
